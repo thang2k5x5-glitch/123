@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        header {
+            background: #ff4f81;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .banner {
+            height: 450px;
+            background-image: url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 55px;
+        }
+
+        .container {
+            width: 1200px;
+            max-width: 95%;
+            margin: auto;
+        }
+
+        .title {
+            text-align: center;
+            margin: 50px 0 30px;
+            color: #333;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+            transition: .3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .price {
+            color: #ff4f81;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #ff4f81;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .about {
+            margin: 70px 0;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact {
+            margin-bottom: 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        #cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>FLOWER SHOP</h1>
+        <p>Hoa tươi cho mọi dịp đặc biệt</p>
+    </header>
+
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#products">Sản phẩm</a>
+        <a href="#about">Giới thiệu</a>
+        <a href="#contact">Liên hệ</a>
+    </nav>
+
+    <div id="cart">
+        🛒 Giỏ hàng: <span id="count">0</span>
+    </div>
+
+    <section class="banner">
+        <div>
+            <h1>Hoa tươi cao cấp</h1>
+            <p>Miễn phí giao hàng trong nội thành</p>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <h2 class="title" id="products">Sản phẩm nổi bật</h2>
+
+        <div class="products">
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80">
+                <div class="info">
+                    <h3>Hoa hồng</h3>
+                    <p class="price">350.000đ</p>
+                    <button onclick="addCart()">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=800&q=80">
+                <div class="info">
+                    <h3>Hoa hướng dương</h3>
+                    <p class="price">300.000đ</p>
+                    <button onclick="addCart()">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80">
+                <div class="info">
+                    <h3>Hoa tulip</h3>
+                    <p class="price">450.000đ</p>
+                    <button onclick="addCart()">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?auto=format&fit=crop&w=800&q=80">
+                <div class="info">
+                    <h3>Hoa cưới</h3>
+                    <p class="price">600.000đ</p>
+                    <button onclick="addCart()">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="about" id="about">
+            <h2>Về chúng tôi</h2>
+            <br>
+            <p>
+                Flower Shop chuyên cung cấp hoa tươi, hoa sinh nhật,
+                hoa khai trương, hoa cưới và nhiều mẫu hoa cao cấp.
+            </p>
+        </div>
+
+        <div class="contact" id="contact">
+
+            <h2>Liên hệ</h2>
+
+            <input type="text" placeholder="Họ và tên">
+
+            <input type="email" placeholder="Email">
+
+            <textarea rows="5" placeholder="Nội dung"></textarea>
+
+            <button>Gửi liên hệ</button>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Flower Shop - Hotline: 0123 456 789
+    </footer>
+
+    <script>
+
+        let cart = 0;
+
+        function addCart() {
+            cart++;
+            document.getElementById("count").innerText = cart;
+            alert("Đã thêm sản phẩm vào giỏ hàng!");
+        }
+
+    </script>
+
+</body>
+
+</html>
